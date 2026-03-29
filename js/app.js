@@ -149,6 +149,18 @@ const layers = {
 let activeLayerId = 'street';
 layers[activeLayerId].addTo(map);
 
+// Dismiss Splash Screen seamlessly when map engine boots
+function dismissSplash() {
+    const splash = document.getElementById('app-splash');
+    if (splash && !splash.classList.contains('hidden')) {
+        splash.classList.add('hidden');
+        setTimeout(() => { if(splash.parentNode) splash.remove(); }, 600); // Wait for CSS transition
+    }
+}
+// Listen to the first layer resolving, or fallback securely to a maximum timer
+layers[activeLayerId].on('load', dismissSplash);
+setTimeout(dismissSplash, 1500);
+
 // Map View Toggles
 const layerBtns = document.querySelectorAll('.layer-btn');
 layerBtns.forEach(btn => {
