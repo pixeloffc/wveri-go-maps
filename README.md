@@ -13,6 +13,16 @@
   <p align="center">
     <strong>A lightning-fast, highly modern, and fully offline-capable web app for map viewing and navigation.</strong>
   </p>
+
+  <p align="center">
+    <a href="https://pixeloffc.github.io/wveri-go-maps/" target="_blank">
+      <img src="https://img.shields.io/badge/Try_Live_Demo-000000?style=for-the-badge&logo=github&logoColor=white" alt="Live Demo" />
+    </a>
+  </p>
+
+  <br />
+  
+  <img src="assets/map_demo.webp" alt="Map Demo Preview" width="600" />
 </div>
 
 ---
