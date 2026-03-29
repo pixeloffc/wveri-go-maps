@@ -1,0 +1,17 @@
+# System or OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+
+# Potential build tooling / cache
+node_modules/
+dist/
+.env
+
+# Offline storage artifacts (typically handled in browser, but just in case)
+*.sqlite
+*.db
