@@ -52,6 +52,39 @@ To host this live instantly:
 
 <br />
 
+## 🗺️ How to Use (Usage Guide)
+
+Using wveri-go maps is designed to be frictionless, whether you are connected to the grid or completely off it.
+
+1. **Find Your Location**: Use the bottom **Search** dock to look up any city, landmark, or set of coordinates.
+2. **Download for Offline**: Once you have positioned the viewport over an area you want to save, click the **Download** dock. The app will fetch the map tiles for that exact area and cache them natively to your device's persistent storage.
+3. **Go Offline**: Disconnect your internet connection. The map infrastructure will intercept all network requests and flawlessly serve your saved areas from internal storage.
+4. **Track Live GPS**: Hit the **Location** button to begin high-accuracy tracking. Use the **Share** feature to instantly send your exact coordinates and a pinpoint link to a friend.
+5. **Dark Mode & Layers**: Switch between standard Street Maps and Satellite Imagery via the **Layers** dock, and toggle Dark Mode inside **Settings** to save battery life.
+
+### 💻 Mini-Code Example: Offline Map Initialization
+If you're curious about how our offline engine works under the hood, here is a mini-example of the internal Leaflet map extension:
+
+```javascript
+// 1. Initialize standard Map Instance
+const map = L.map('map').setView([22.9, 79.2], 5);
+
+// 2. Define our custom Offline TileLayer wrapper 
+// (Intercepts map panning to check local IndexedDB first before making network requests)
+const layers = {
+    street: L.tileLayer.offline('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18, 
+        crossOrigin: true,
+        layerId: 'street' // Differentiates cache keys by map style
+    })
+};
+
+// 3. Mount layer to screen
+layers.street.addTo(map);
+```
+
+<br />
+
 ## 🛠️ Tech Stack & Architecture
 
 This project deliberately avoids massive frontend frameworks to maximize offline efficiency.
