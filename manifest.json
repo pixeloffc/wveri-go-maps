@@ -1,0 +1,17 @@
+{
+  "name": "Offline Map Viewer",
+  "short_name": "Map Viewer",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#0f172a",
+  "background_color": "#0f172a",
+  "description": "A fully functional offline-capable map viewer and tile downloader.",
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
